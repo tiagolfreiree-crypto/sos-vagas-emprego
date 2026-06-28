@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
+module.exports = {
+  content: ['./app/**/*.{js,jsx}'],
   theme: {
     extend: {
       fontFamily: {
@@ -8,7 +8,7 @@ export default {
       },
       colors: {
         brand: {
-          50:  '#EFF6FF',
+          50: '#EFF6FF',
           100: '#DBEAFE',
           500: '#3B82F6',
           600: '#2563EB',
@@ -19,4 +19,4 @@ export default {
     },
   },
   plugins: [],
-}
+};

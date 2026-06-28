@@ -1,0 +1,100 @@
+:root {
+  --cream: #fff8f0;
+  --cream-2: #fff1e2;
+  --ink: #2b1608;
+  --ink-soft: #5c3a22;
+  --orange: #e8601c;
+  --orange-deep: #b8390f;
+  --orange-dark: #8a2b0d;
+  --amber: #ffb23f;
+  --orange-soft: #ffe4cc;
+  --whats-green: #25d366;
+  --whats-bubble: #dcf8c6;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+}
+
+.cgemsRoot {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.cgemsRoot h1,
+.cgemsRoot h2,
+.cgemsRoot h3,
+.cgemsRoot .display {
+  font-family: 'Unbounded', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.cgemsRoot p {
+  margin: 0;
+}
+
+.cgemsRoot a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cgemsRoot button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+.cgemsRoot img {
+  max-width: 100%;
+  display: block;
+}
+
+.cgemsRoot .container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cgemsRoot .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  padding: 16px 28px;
+  border-radius: 100px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 6px 0 var(--ink-soft);
+}
+
+.cgemsRoot .btn:hover {
+  transform: translateY(-2px);
+}
+
+.cgemsRoot .btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--ink-soft);
+}
+
+.cgemsRoot .btn-light {
+  background: #fff;
+  color: var(--orange-deep);
+  box-shadow: 0 6px 0 var(--orange-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cgemsRoot * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.cgemsRoot :focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
