@@ -12,6 +12,7 @@ const TESTIMONIAL_IMAGES = [
 ];
 
 const BENEFITS = [
+  'A partir de R$ 35,00 por vaga divulgada',
   'Divulgação para mais de 51 mil seguidores',
   'Divulgação para mais de 10 mil pessoas em grupos de WhatsApp',
   'Currículos enviados diretamente para sua empresa',
@@ -22,7 +23,7 @@ const BENEFITS = [
 const FAQ = [
   {
     q: 'Quanto custa divulgar uma vaga?',
-    a: 'O valor é acessível e cabe no orçamento de qualquer empresa. Te passamos os detalhes certinhos pelo WhatsApp, sem compromisso.',
+    a: 'A partir de R$ 35,00 por vaga divulgada. Te passamos os detalhes certinhos pelo WhatsApp, sem compromisso.',
   },
   {
     q: 'Como eu recebo os currículos?',
@@ -100,6 +101,7 @@ export default function EmpresasCgemsPage() {
               Quero divulgar minha vaga
             </CtaButton>
             <p className={styles.heroMicrocopy}>Resposta rápida via WhatsApp • Publicação rápida</p>
+            <p className={styles.pricePill}>A partir de <strong>R$ 35,00</strong> por vaga divulgada</p>
           </div>
 
           <div className={styles.heroArt}>

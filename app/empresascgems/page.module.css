@@ -79,6 +79,21 @@
   font-weight: 600;
 }
 
+.pricePill {
+  display: inline-flex;
+  margin-top: 14px;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  color: #fff;
+}
+
+.pricePill strong {
+  margin-left: 4px;
+  font-family: 'Unbounded', sans-serif;
+}
+
 .heroStats {
   display: flex;
   gap: 28px;
