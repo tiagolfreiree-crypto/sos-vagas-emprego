@@ -6,7 +6,7 @@ export const metadata = {
     'Receba vagas de emprego direto no WhatsApp. Divulgação gratuita de oportunidades em várias cidades.',
 };
 
-const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || 'SEU_PIXEL_ID_AQUI';
+const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '1073724588680724';
 
 export default function RootLayout({ children }) {
   return (
