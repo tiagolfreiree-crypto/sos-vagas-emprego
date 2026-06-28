@@ -132,39 +132,15 @@
   color: var(--orange-deep);
 }
 
-/* NÚMEROS EM DESTAQUE */
-.statsBand {
-  background: var(--ink);
-  padding: 40px 0 28px;
-  text-align: center;
+/* PROVA REAL — infográfico com números, telas e processo */
+.realProof {
+  padding: 48px 0 8px;
 }
 
-.statsBandInner {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.statBig strong {
-  display: block;
-  font-family: 'Unbounded', sans-serif;
-  font-size: 40px;
-  color: var(--amber);
-  line-height: 1.1;
-}
-
-.statBig span {
-  display: block;
-  margin-top: 6px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 600;
-}
-
-.statsNote {
-  margin-top: 18px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
+.realProofImg {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 40px rgba(43, 22, 8, 0.12);
 }
 
 /* DOR */
@@ -265,42 +241,6 @@
   color: var(--whats-green);
   font-weight: 800;
   flex-shrink: 0;
-}
-
-/* COMO FUNCIONA */
-.how {
-  background: var(--ink);
-  padding: 88px 0;
-}
-
-.howGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.howStep {
-  color: #fff;
-}
-
-.howNum {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 36px;
-  color: var(--amber);
-  display: block;
-  margin-bottom: 12px;
-}
-
-.howStep h3 {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.howStep p {
-  color: rgba(255, 255, 255, 0.78);
-  line-height: 1.55;
-  font-size: 15px;
 }
 
 /* DEPOIMENTOS */
@@ -460,10 +400,8 @@
     font-size: 36px;
   }
   .painGrid,
-  .howGrid,
   .proofGrid,
-  .proofImagesGrid,
-  .statsBandInner {
+  .proofImagesGrid {
     grid-template-columns: 1fr;
   }
   .heroStats {

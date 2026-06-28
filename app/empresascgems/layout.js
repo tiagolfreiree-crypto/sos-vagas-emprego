@@ -4,11 +4,11 @@ export const metadata = {
   metadataBase: new URL('https://www.sosvagasdeemprego.com.br'),
   title: 'Divulgue Vagas de Emprego em Campo Grande MS | Vagas Campo Grande',
   description:
-    'Divulgue sua vaga para mais de 51 mil seguidores e 10 grupos de WhatsApp em Campo Grande, MS. Publicação no mesmo dia e currículos direto pra sua empresa.',
+    'Divulgue sua vaga para mais de 51 mil seguidores no Instagram e 10 mil pessoas em grupos de WhatsApp em Campo Grande, MS. Publicação rápida e currículos direto pra sua empresa.',
   openGraph: {
     title: 'Divulgue Vagas de Emprego em Campo Grande MS',
     description:
-      'Alcance mais de 51 mil profissionais e 10 grupos de WhatsApp. Publicação rápida, atendimento via WhatsApp.',
+      'Mais de 51 mil seguidores e 10 mil pessoas em grupos de WhatsApp. Publicação rápida, atendimento via WhatsApp.',
     url: 'https://www.sosvagasdeemprego.com.br/empresascgems',
     siteName: 'Vagas Campo Grande',
     locale: 'pt_BR',

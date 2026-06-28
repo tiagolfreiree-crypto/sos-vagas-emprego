@@ -1,6 +1,7 @@
 import LeadForm from './LeadForm';
 import CtaButton from './CtaButton';
 import Analytics from './Analytics';
+import FloatingCta from './FloatingCta';
 import styles from './page.module.css';
 
 const TESTIMONIAL_IMAGES = [
@@ -11,11 +12,11 @@ const TESTIMONIAL_IMAGES = [
 ];
 
 const BENEFITS = [
-  'Publicação no mesmo dia',
+  'Divulgação para mais de 51 mil seguidores',
+  'Divulgação para mais de 10 mil pessoas em grupos de WhatsApp',
   'Currículos enviados diretamente para sua empresa',
-  'Alcance em milhares de candidatos de Campo Grande',
-  'Divulgação no Instagram + 10 grupos de WhatsApp',
-  'Atendimento rápido, sem burocracia',
+  'Publicação rápida',
+  'Atendimento via WhatsApp',
 ];
 
 const FAQ = [
@@ -30,10 +31,6 @@ const FAQ = [
   {
     q: 'Quanto tempo demora para publicar?',
     a: 'Normalmente publicamos no mesmo dia em que você nos envia os dados da vaga.',
-  },
-  {
-    q: 'Posso divulgar mais de uma vaga?',
-    a: 'Sim. Muitas empresas divulgam vagas com a gente todo mês. Fala com a gente que montamos a melhor forma pro seu caso.',
   },
   {
     q: 'Os currículos vão direto para a minha empresa?',
@@ -54,7 +51,7 @@ export default function EmpresasCgemsPage() {
             '@type': 'LocalBusiness',
             name: 'Vagas Campo Grande',
             description:
-              'Divulgação de vagas de emprego para empresas de Campo Grande, MS, através de Instagram e grupos de WhatsApp.',
+              'Divulgação de vagas de emprego para empresas de Campo Grande, MS, para mais de 51 mil seguidores no Instagram e 10 mil pessoas em grupos de WhatsApp.',
             areaServed: 'Campo Grande, MS',
             address: {
               '@type': 'PostalAddress',
@@ -91,8 +88,8 @@ export default function EmpresasCgemsPage() {
             </h1>
             <p className={styles.heroSub}>
               Divulgamos sua vaga para mais de <strong>51 mil seguidores</strong> e{' '}
-              <strong>10 grupos de WhatsApp</strong> lotados de gente de Campo Grande
-              procurando emprego. Currículo chegando em poucos dias.
+              <strong>10 mil pessoas em grupos de WhatsApp</strong> de Campo Grande
+              procurando emprego.
             </p>
 
             <CtaButton
@@ -102,7 +99,7 @@ export default function EmpresasCgemsPage() {
             >
               Quero divulgar minha vaga
             </CtaButton>
-            <p className={styles.heroMicrocopy}>Publicação rápida • Atendimento via WhatsApp</p>
+            <p className={styles.heroMicrocopy}>Resposta rápida via WhatsApp • Publicação rápida</p>
           </div>
 
           <div className={styles.heroArt}>
@@ -119,23 +116,16 @@ export default function EmpresasCgemsPage() {
         </div>
       </section>
 
-      {/* NÚMEROS EM DESTAQUE */}
-      <section className={styles.statsBand}>
-        <div className={`container ${styles.statsBandInner}`}>
-          <div className={styles.statBig}>
-            <strong>51.000+</strong>
-            <span>Profissionais alcançados</span>
-          </div>
-          <div className={styles.statBig}>
-            <strong>10</strong>
-            <span>Grupos de WhatsApp</span>
-          </div>
-          <div className={styles.statBig}>
-            <strong>100+</strong>
-            <span>Currículos por vaga*</span>
-          </div>
+      {/* PROVA REAL: ONDE SUA VAGA É DIVULGADA (números + telas reais + processo, tudo numa imagem) */}
+      <section className={styles.realProof}>
+        <div className="container">
+          <img
+            src="/proof/infografico-alcance.webp"
+            alt="Infográfico mostrando o alcance real: 51.200+ seguidores no Instagram, 2,4 milhões de visualizações nos últimos 30 dias, 10.000+ pessoas nos grupos de WhatsApp, e o passo a passo de divulgação da vaga"
+            className={styles.realProofImg}
+            loading="lazy"
+          />
         </div>
-        <p className={styles.statsNote}>*Número médio, pode variar de acordo com a vaga divulgada.</p>
       </section>
 
       {/* DOR */}
@@ -162,21 +152,6 @@ export default function EmpresasCgemsPage() {
         </div>
       </section>
 
-      {/* CTA INTERMEDIÁRIO */}
-      <section className={styles.midCta}>
-        <div className={`container ${styles.midCtaInner}`}>
-          <div>
-            <h2 className={styles.h2}>Encontre mais candidatos para sua vaga.</h2>
-            <p className={styles.midCtaText}>
-              É rápido: você manda os dados da vaga, a gente divulga ainda hoje.
-            </p>
-          </div>
-          <CtaButton href="#anunciar" className="btn" eventName="MidCTAClick">
-            Solicitar divulgação
-          </CtaButton>
-        </div>
-      </section>
-
       {/* BENEFÍCIOS */}
       <section className={styles.benefits}>
         <div className="container">
@@ -192,34 +167,25 @@ export default function EmpresasCgemsPage() {
         </div>
       </section>
 
-      {/* COMO FUNCIONA */}
-      <section className={styles.how}>
-        <div className="container">
-          <h2 className={styles.h2White}>Como funciona</h2>
-          <div className={styles.howGrid}>
-            <div className={styles.howStep}>
-              <span className={styles.howNum}>01</span>
-              <h3>Você envia a vaga</h3>
-              <p>Preenche o formulário com os dados da empresa e da vaga.</p>
-            </div>
-            <div className={styles.howStep}>
-              <span className={styles.howNum}>02</span>
-              <h3>A gente divulga no mesmo dia</h3>
-              <p>Postamos no Instagram (51 mil seguidores) e nos 10 grupos de WhatsApp.</p>
-            </div>
-            <div className={styles.howStep}>
-              <span className={styles.howNum}>03</span>
-              <h3>Currículos chegam direto pra você</h3>
-              <p>Candidatos te procuram diretamente, sem intermediário.</p>
-            </div>
+      {/* CTA INTERMEDIÁRIO */}
+      <section className={styles.midCta}>
+        <div className={`container ${styles.midCtaInner}`}>
+          <div>
+            <h2 className={styles.h2}>Pronto para divulgar sua vaga?</h2>
+            <p className={styles.midCtaText}>
+              É rápido: você manda os dados da vaga, a gente divulga ainda hoje.
+            </p>
           </div>
+          <CtaButton href="#anunciar" className="btn" eventName="MidCTAClick">
+            Quero divulgar minha vaga
+          </CtaButton>
         </div>
       </section>
 
       {/* DEPOIMENTOS — PRINTS REAIS */}
       <section className={styles.proof}>
         <div className="container">
-          <h2 className={styles.h2}>Empresas que divulgaram conosco</h2>
+          <h2 className={styles.h2}>Veja alguns resultados de empresas que divulgaram conosco</h2>
           <p className={styles.proofSub}>Prints reais de conversas no WhatsApp — sem edição.</p>
           <div className={styles.proofImagesGrid}>
             {TESTIMONIAL_IMAGES.map((img) => (
@@ -240,7 +206,9 @@ export default function EmpresasCgemsPage() {
               Preencha seus dados e fala com a gente direto no WhatsApp pra fechar os
               detalhes da divulgação.
             </p>
-            <p className={styles.urgency}>⚡ Sua vaga pode ser publicada ainda hoje.</p>
+            <p className={styles.urgency}>
+              ⚡ Sua vaga poderá ser publicada ainda hoje, dependendo do horário de envio.
+            </p>
           </div>
           <LeadForm />
         </div>
@@ -270,6 +238,8 @@ export default function EmpresasCgemsPage() {
           <span className={styles.footerNote}>Campo Grande, MS</span>
         </div>
       </footer>
+
+      <FloatingCta />
     </main>
   );
 }
