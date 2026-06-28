@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { fireCustom } from './Analytics';
 import styles from './LeadForm.module.css';
 
 export default function LeadForm() {
   const router = useRouter();
-  const [values, setValues] = useState({ nome: '', whatsapp: '', empresa: '' });
+  const [values, setValues] = useState({ nome: '', whatsapp: '', empresa: '', vaga: '' });
   const [error, setError] = useState('');
 
   function handleChange(e) {
@@ -21,10 +22,13 @@ export default function LeadForm() {
     }
     setError('');
 
+    fireCustom('FormSubmit', { empresa: values.empresa.trim(), vaga: values.vaga.trim() });
+
     const params = new URLSearchParams({
       nome: values.nome.trim(),
       whatsapp: values.whatsapp.trim(),
       empresa: values.empresa.trim(),
+      vaga: values.vaga.trim(),
     });
 
     router.push(`/empresascgems/obrigado?${params.toString()}`);
@@ -68,6 +72,17 @@ export default function LeadForm() {
         />
       </label>
 
+      <label className={styles.field}>
+        <span>Qual vaga deseja divulgar? <em className={styles.optional}>(opcional)</em></span>
+        <input
+          name="vaga"
+          type="text"
+          placeholder="Ex: Vendedor, Recepcionista, Motorista..."
+          value={values.vaga}
+          onChange={handleChange}
+        />
+      </label>
+
       {error && <p className={styles.error}>{error}</p>}
 
       <button type="submit" className={styles.submit}>
@@ -77,6 +92,7 @@ export default function LeadForm() {
         Ao enviar, você será direcionado ao nosso WhatsApp pra combinar os detalhes da
         divulgação.
       </p>
+      <p className={styles.trustLine}>Sem compromisso. Resposta rápida. Atendimento via WhatsApp.</p>
     </form>
   );
 }

@@ -1,37 +1,81 @@
 import LeadForm from './LeadForm';
+import CtaButton from './CtaButton';
+import Analytics from './Analytics';
 import styles from './page.module.css';
 
-const TESTIMONIALS = [
+const TESTIMONIAL_IMAGES = [
+  { src: '/proof/depoimento-1.webp', alt: 'Empresa agradecendo: vaga fechada e candidatos efetivados' },
+  { src: '/proof/depoimento-2.webp', alt: 'Empresa confirmando vaga preenchida pela divulgação' },
+  { src: '/proof/depoimento-3.webp', alt: 'Empresa relatando cerca de 100 candidatos interessados' },
+  { src: '/proof/depoimento-4.webp', alt: 'Empresa agradecendo pelo grande volume de currículos recebidos' },
+];
+
+const BENEFITS = [
+  'Publicação no mesmo dia',
+  'Currículos enviados diretamente para sua empresa',
+  'Alcance em milhares de candidatos de Campo Grande',
+  'Divulgação no Instagram + 10 grupos de WhatsApp',
+  'Atendimento rápido, sem burocracia',
+];
+
+const FAQ = [
   {
-    text: 'Muito obrigado pela ajuda, fechamos todas as vagas, aleluia kkkk deu até vontade de chorar de tanta alegria. Nossa intenção é efetivar todos se Deus quiser 🙏',
-    emoji: '😊',
+    q: 'Quanto custa divulgar uma vaga?',
+    a: 'O valor é acessível e cabe no orçamento de qualquer empresa. Te passamos os detalhes certinhos pelo WhatsApp, sem compromisso.',
   },
   {
-    text: 'Conseguimos sim! A vaga foi preenchida, muito obrigado pelo apoio de sempre. Já vamos ter outra vaga para divulgar com vocês! 👏',
-    emoji: '🚀',
+    q: 'Como eu recebo os currículos?',
+    a: 'Os candidatos te procuram diretamente — por WhatsApp ou pelo contato que você definir na divulgação. Sem intermediário.',
   },
   {
-    text: 'Opa, muito bom! Recebi umas 100 pessoas mandando currículo.',
-    emoji: '📈',
+    q: 'Quanto tempo demora para publicar?',
+    a: 'Normalmente publicamos no mesmo dia em que você nos envia os dados da vaga.',
   },
   {
-    text: 'Obrigada! Chegou um monte de currículooo 🥰',
-    emoji: '🥰',
+    q: 'Posso divulgar mais de uma vaga?',
+    a: 'Sim. Muitas empresas divulgam vagas com a gente todo mês. Fala com a gente que montamos a melhor forma pro seu caso.',
+  },
+  {
+    q: 'Os currículos vão direto para a minha empresa?',
+    a: 'Sim, sempre. Os candidatos entram em contato direto com você — nunca ficamos no meio do processo de seleção.',
   },
 ];
 
 export default function EmpresasCgemsPage() {
   return (
     <main>
+      <Analytics />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            name: 'Vagas Campo Grande',
+            description:
+              'Divulgação de vagas de emprego para empresas de Campo Grande, MS, através de Instagram e grupos de WhatsApp.',
+            areaServed: 'Campo Grande, MS',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Campo Grande',
+              addressRegion: 'MS',
+              addressCountry: 'BR',
+            },
+            sameAs: [],
+          }),
+        }}
+      />
+
       <header className={styles.header}>
         <div className={`container ${styles.headerInner}`}>
           <div className={styles.brand}>
             <img src="/logo-empresas.webp" alt="Vagas Campo Grande MS" width={44} height={44} />
             <span>Vagas Campo Grande</span>
           </div>
-          <a href="#anunciar" className="btn">
+          <CtaButton href="#anunciar" className="btn" eventName="HeaderCTAClick">
             Anunciar vaga
-          </a>
+          </CtaButton>
         </div>
       </header>
 
@@ -50,39 +94,48 @@ export default function EmpresasCgemsPage() {
               <strong>10 grupos de WhatsApp</strong> lotados de gente de Campo Grande
               procurando emprego. Currículo chegando em poucos dias.
             </p>
-            <a href="#anunciar" className={`btn btn-light ${styles.heroBtn}`}>
-              Quero divulgar minha vaga →
-            </a>
-            <div className={styles.heroStats}>
-              <div>
-                <strong>51 mil+</strong>
-                <span>seguidores no Instagram</span>
-              </div>
-              <div>
-                <strong>10</strong>
-                <span>grupos de WhatsApp lotados</span>
-              </div>
-              <div>
-                <strong>+100</strong>
-                <span>currículos por vaga, em média</span>
-              </div>
-            </div>
+
+            <CtaButton
+              href="#anunciar"
+              className={`btn btn-light ${styles.heroBtn}`}
+              eventName="HeroCTAClick"
+            >
+              Quero divulgar minha vaga
+            </CtaButton>
+            <p className={styles.heroMicrocopy}>Publicação rápida • Atendimento via WhatsApp</p>
           </div>
 
-          <div className={styles.heroArt} aria-hidden="true">
-            <div className={styles.cvStack}>
-              <div className={styles.cvCard} style={{ transform: 'rotate(-9deg) translateY(10px)' }} />
-              <div className={styles.cvCard} style={{ transform: 'rotate(6deg) translateY(-4px)' }} />
-              <div className={`${styles.cvCard} ${styles.cvCardFront}`}>
-                <div className={styles.cvLine} style={{ width: '60%' }} />
-                <div className={styles.cvLine} style={{ width: '85%' }} />
-                <div className={styles.cvLine} style={{ width: '40%' }} />
-                <div className={styles.cvAvatar} />
-              </div>
-              <div className={styles.bubble}>+100 currículos 🔥</div>
+          <div className={styles.heroArt}>
+            <div className={styles.heroProofCard}>
+              <img
+                src="/proof/depoimento-3.webp"
+                alt="Print real de empresa relatando cerca de 100 currículos recebidos após divulgação"
+                width={280}
+                loading="eager"
+              />
+              <span className={styles.heroProofTag}>Conversa real no WhatsApp</span>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* NÚMEROS EM DESTAQUE */}
+      <section className={styles.statsBand}>
+        <div className={`container ${styles.statsBandInner}`}>
+          <div className={styles.statBig}>
+            <strong>51.000+</strong>
+            <span>Profissionais alcançados</span>
+          </div>
+          <div className={styles.statBig}>
+            <strong>10</strong>
+            <span>Grupos de WhatsApp</span>
+          </div>
+          <div className={styles.statBig}>
+            <strong>100+</strong>
+            <span>Currículos por vaga*</span>
+          </div>
+        </div>
+        <p className={styles.statsNote}>*Número médio, pode variar de acordo com a vaga divulgada.</p>
       </section>
 
       {/* DOR */}
@@ -106,6 +159,36 @@ export default function EmpresasCgemsPage() {
               <p>Alcance genérico traz volume, mas não traz quem realmente serve pra vaga.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA INTERMEDIÁRIO */}
+      <section className={styles.midCta}>
+        <div className={`container ${styles.midCtaInner}`}>
+          <div>
+            <h2 className={styles.h2}>Encontre mais candidatos para sua vaga.</h2>
+            <p className={styles.midCtaText}>
+              É rápido: você manda os dados da vaga, a gente divulga ainda hoje.
+            </p>
+          </div>
+          <CtaButton href="#anunciar" className="btn" eventName="MidCTAClick">
+            Solicitar divulgação
+          </CtaButton>
+        </div>
+      </section>
+
+      {/* BENEFÍCIOS */}
+      <section className={styles.benefits}>
+        <div className="container">
+          <h2 className={styles.h2}>O que você ganha ao divulgar com a gente</h2>
+          <ul className={styles.benefitsList}>
+            {BENEFITS.map((b) => (
+              <li key={b}>
+                <span className={styles.benefitCheck}>✓</span>
+                {b}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -133,16 +216,15 @@ export default function EmpresasCgemsPage() {
         </div>
       </section>
 
-      {/* DEPOIMENTOS */}
+      {/* DEPOIMENTOS — PRINTS REAIS */}
       <section className={styles.proof}>
         <div className="container">
-          <h2 className={styles.h2}>O que as empresas dizem depois</h2>
-          <p className={styles.proofSub}>Conversas reais de WhatsApp com empresas de Campo Grande.</p>
-          <div className={styles.proofGrid}>
-            {TESTIMONIALS.map((t, i) => (
-              <div key={i} className={styles.chatBubble}>
-                <p>{t.text}</p>
-                <span className={styles.chatTime}>{t.emoji}</span>
+          <h2 className={styles.h2}>Empresas que divulgaram conosco</h2>
+          <p className={styles.proofSub}>Prints reais de conversas no WhatsApp — sem edição.</p>
+          <div className={styles.proofImagesGrid}>
+            {TESTIMONIAL_IMAGES.map((img) => (
+              <div key={img.src} className={styles.proofImageCard}>
+                <img src={img.src} alt={img.alt} loading="lazy" />
               </div>
             ))}
           </div>
@@ -158,8 +240,24 @@ export default function EmpresasCgemsPage() {
               Preencha seus dados e fala com a gente direto no WhatsApp pra fechar os
               detalhes da divulgação.
             </p>
+            <p className={styles.urgency}>⚡ Sua vaga pode ser publicada ainda hoje.</p>
           </div>
           <LeadForm />
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className={styles.faq}>
+        <div className="container">
+          <h2 className={styles.h2}>Perguntas frequentes</h2>
+          <div className={styles.faqList}>
+            {FAQ.map((item) => (
+              <details key={item.q} className={styles.faqItem}>
+                <summary className={styles.faqQuestion}>{item.q}</summary>
+                <p className={styles.faqAnswer}>{item.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

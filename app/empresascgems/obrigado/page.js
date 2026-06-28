@@ -6,6 +6,12 @@ import styles from './obrigado.module.css';
 
 const WHATSAPP_NUMBER = '5567997319009';
 
+function fireWhatsAppClick(empresa) {
+  if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+    window.fbq('trackCustom', 'WhatsAppClick', { empresa });
+  }
+}
+
 function ObrigadoContent() {
   const searchParams = useSearchParams();
   const [seconds, setSeconds] = useState(3);
@@ -13,8 +19,10 @@ function ObrigadoContent() {
   const nome = searchParams.get('nome') || '';
   const whatsapp = searchParams.get('whatsapp') || '';
   const empresa = searchParams.get('empresa') || '';
+  const vaga = searchParams.get('vaga') || '';
 
-  const mensagem = `Olá! Vim pelo site Vagas Campo Grande 🧡\nMeu nome é ${nome}, da empresa ${empresa}.\nMeu WhatsApp: ${whatsapp}.\nGostaria de divulgar uma vaga.`;
+  const vagaLine = vaga ? `\nVaga: ${vaga}.` : '';
+  const mensagem = `Olá! Vim pelo site Vagas Campo Grande 🧡\nMeu nome é ${nome}, da empresa ${empresa}.\nMeu WhatsApp: ${whatsapp}.${vagaLine}\nGostaria de divulgar uma vaga.`;
   const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
 
   useEffect(() => {
@@ -32,6 +40,7 @@ function ObrigadoContent() {
     }, 1000);
 
     const timeout = setTimeout(() => {
+      fireWhatsAppClick(empresa);
       window.location.href = waLink;
     }, 3000);
 
@@ -39,7 +48,7 @@ function ObrigadoContent() {
       clearInterval(interval);
       clearTimeout(timeout);
     };
-  }, [waLink]);
+  }, [waLink, empresa]);
 
   return (
     <main className={styles.wrap}>
@@ -50,7 +59,7 @@ function ObrigadoContent() {
           Você vai ser redirecionado pro nosso WhatsApp em <strong>{seconds}s</strong> pra
           gente combinar os detalhes da divulgação da vaga.
         </p>
-        <a href={waLink} className={styles.btn}>
+        <a href={waLink} className={styles.btn} onClick={() => fireWhatsAppClick(empresa)}>
           Ir para o WhatsApp agora →
         </a>
       </div>

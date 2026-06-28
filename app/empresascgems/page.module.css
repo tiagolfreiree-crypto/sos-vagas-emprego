@@ -72,6 +72,13 @@
   margin-top: 28px;
 }
 
+.heroMicrocopy {
+  margin-top: 14px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
 .heroStats {
   display: flex;
   gap: 28px;
@@ -102,56 +109,62 @@
   justify-content: center;
 }
 
-.cvStack {
-  position: relative;
-  width: 220px;
-  height: 280px;
-}
-
-.cvCard {
-  position: absolute;
-  inset: 0;
-  background: #fff8f0;
-  border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-}
-
-.cvCardFront {
-  position: absolute;
-  inset: 0;
-  padding: 26px 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transform: none;
-}
-
-.cvLine {
-  height: 10px;
-  border-radius: 6px;
-  background: var(--orange-soft);
-}
-
-.cvAvatar {
-  margin-top: auto;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: var(--amber);
-}
-
-.bubble {
-  position: absolute;
-  top: -18px;
-  right: -36px;
+.heroProofCard {
   background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 14px 14px 16px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.3);
+  transform: rotate(-2deg);
+  max-width: 280px;
+}
+
+.heroProofCard img {
+  border-radius: 14px;
+  width: 100%;
+}
+
+.heroProofTag {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
   color: var(--orange-deep);
-  font-weight: 800;
+}
+
+/* NÚMEROS EM DESTAQUE */
+.statsBand {
+  background: var(--ink);
+  padding: 40px 0 28px;
+  text-align: center;
+}
+
+.statsBandInner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.statBig strong {
+  display: block;
   font-family: 'Unbounded', sans-serif;
-  font-size: 13px;
-  padding: 10px 16px;
-  border-radius: 100px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  font-size: 40px;
+  color: var(--amber);
+  line-height: 1.1;
+}
+
+.statBig span {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+.statsNote {
+  margin-top: 18px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* DOR */
@@ -200,6 +213,58 @@
   color: var(--ink-soft);
   line-height: 1.55;
   font-size: 15px;
+}
+
+/* CTA INTERMEDIÁRIO */
+.midCta {
+  background: var(--orange-soft);
+  padding: 48px 0;
+}
+
+.midCtaInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.midCtaText {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+/* BENEFÍCIOS */
+.benefits {
+  padding: 72px 0;
+}
+
+.benefitsList {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 32px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefitsList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.benefitCheck {
+  color: var(--whats-green);
+  font-weight: 800;
+  flex-shrink: 0;
 }
 
 /* COMO FUNCIONA */
@@ -277,6 +342,24 @@
   font-size: 18px;
 }
 
+.proofImagesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.proofImageCard {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 10px;
+  box-shadow: 0 8px 24px rgba(43, 22, 8, 0.1);
+}
+
+.proofImageCard img {
+  border-radius: 10px;
+  width: 100%;
+}
+
 /* FORM */
 .formSection {
   background: linear-gradient(160deg, var(--orange-deep) 0%, var(--ink) 100%);
@@ -302,6 +385,51 @@
   max-width: 380px;
 }
 
+.urgency {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--amber);
+}
+
+/* FAQ */
+.faq {
+  padding: 72px 0;
+}
+
+.faqList {
+  max-width: 720px;
+  margin: 36px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faqItem {
+  background: var(--cream-2);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+}
+
+.faqQuestion {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  list-style: none;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqAnswer {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
 /* FOOTER */
 .footer {
   padding: 28px 0;
@@ -325,17 +453,35 @@
     grid-template-columns: 1fr;
   }
   .heroArt {
-    height: 240px;
+    height: auto;
+    margin-top: 32px;
   }
   .h1 {
     font-size: 36px;
   }
   .painGrid,
   .howGrid,
-  .proofGrid {
+  .proofGrid,
+  .proofImagesGrid,
+  .statsBandInner {
     grid-template-columns: 1fr;
   }
   .heroStats {
     gap: 20px;
+  }
+  .benefitsList {
+    grid-template-columns: 1fr;
+  }
+  .midCtaInner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .midCtaInner .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .statBig strong {
+    font-size: 32px;
   }
 }
